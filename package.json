@@ -1,0 +1,19 @@
+{
+  "name": "libraryapp",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Jieea",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^8.9.4"
+  }
+}
