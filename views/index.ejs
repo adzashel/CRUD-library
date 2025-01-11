@@ -1,0 +1,8 @@
+   <% users.forEach(user => { %>
+        <!-- show data user -->
+         <ul>
+           <li><%= user.name %></li>
+           <li><%= user.author %></li>
+           <img src='<%= user.image %>' alt="">
+         </ul>
+       <% }) %>

@@ -1,37 +1,33 @@
-const express = require('express');
-const expressEjsLayouts = require('express-ejs-layouts');
+const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
 const app = express();
-const mongoose = require('mongoose');
-
+const User = require("./server");
 const port = 8080;
 
 // use ejs
 
-app.set('view engine', 'ejs');
-app.use(expressEjsLayouts);
+app.set("view engine", "ejs");
+app.use(expressLayouts);
 
 // middleware for static files
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-// connect mongodb
-mongoose.connect('mongodb://localhost:27017/login' , {
-    userNewUrlParser :true,
-    useUnifiedToplogy :true
-}).then(() => {
-    console.log('Connected to mongodb');
-}).catch(err => console.error(err));
-
-// create user model
-const data  = mongoose.model('users_login');
-
-// middleware 
-app.get('/' , (req, res) => {
-    res.send('Hello World');
+// middleware
+app.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.render("index", { 
+        layout : "layout/container", 
+        users: users,
+        title: "User List"
+     });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
 });
 
-
-
-app.listen(port , (req, res) =>{
-    console.log(`Server is running on port http://localhost:${port}`);
+app.listen(port, (req, res) => {
+  console.log(`Server is running on port http://localhost:${port}`);
 });
