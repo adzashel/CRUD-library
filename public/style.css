@@ -1,7 +1,5 @@
 .books-container {
     margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(4 , 1fr);
 }
 
 .image {
@@ -97,3 +95,50 @@
     transition-duration: 0.3s;
   }
   
+.offcanvas {
+  width: 350px !important;
+}
+
+.category-list {
+  text-decoration: none;
+  margin-bottom: 1em;
+  color: #000;
+  display: block;
+}
+
+
+/* card */
+.cards-container {
+  width: 200px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 5rem;
+}
+.image {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.wrapper {
+  display: block;
+}
+.image img {
+  width: 150px;
+  height: 200px;
+  margin-top: -2rem;
+}
+
+.details h2 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.details p {
+  font-size: 16px;
+}
+

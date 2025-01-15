@@ -13,15 +13,23 @@ app.use(expressLayouts);
 
 app.use(express.static("public"));
 
+// list
+const category = [
+  { list: "Fiction" },
+  { list: "Phylosophy" },
+  { list: "Biography" },
+];
+
 // middleware
 app.get("/", async (req, res) => {
   try {
     const users = await User.find();
-    res.render("index", { 
-        layout : "layout/container", 
-        users: users,
-        title: "User List"
-     });
+    res.render("index", {
+      layout: "layout/container",
+      users: users,
+      title: "User List",
+      category
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
