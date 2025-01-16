@@ -2,14 +2,12 @@
     <% users.forEach(user => { %>
       <div class="cards-container">
        <div class="wrapper">
-        <div class="image">
           <img src="<%= user.image %>" alt="<%= user.name %>"/>
+          <div class="details">
+            <h2><%= user.name %></h2>
+            <p><%= user.author %></p>
+         </div>
         </div>
-        <div class="details">
-          <h2><%= user.name %></h2>
-          <p><%= user.author %></p>
-          <button>Detail</button>
-       </div>
       </div>
      <% }) %>
    </div>
