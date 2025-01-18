@@ -16,6 +16,7 @@
   flex-wrap: wrap;
 }
 
+
 img {
   height: 170px;
   margin-bottom: 10px;
@@ -168,7 +169,7 @@ img {
 
 .genre-list a {
   display: block;
-  padding:5px ;
+  padding: 5px;
 }
 
 .genre-list a:hover {
@@ -180,17 +181,21 @@ img {
 /* new release section */
 .item-container {
   display: grid;
-  grid-template-columns: repeat(3 , 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
 .item-header {
-  background-color: #5c5b5b;
   border-radius: 10px;
+  background-size: cover; /* Options: cover, contain, 100%, etc. */
   display: flex;
 }
 
 .item-detail {
   padding: 1rem;
   color: #fff;
+}
+
+.item-detail h2 {
+  font-size: 1rem;
 }
