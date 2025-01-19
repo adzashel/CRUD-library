@@ -1,0 +1,14 @@
+<h3 class="mt-5">For You</h3>
+  <div class="books-container mb-5">
+    <% books.forEach(user => { %>
+      <div class="cards-container">
+       <div class="wrapper">
+          <img src="<%= user.image %>" alt="<%= user.name %>"/>
+          <div class="details">
+            <h2><%= user.name %></h2>
+            <p><%= user.author %></p>
+         </div>
+        </div>
+      </div>
+     <% }) %>
+   </div>

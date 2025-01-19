@@ -2,7 +2,7 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
-const { User, NewRelease } = require("./server");
+const { User, NewRelease  } = require("./server");
 
 // use ejs
 
@@ -40,6 +40,24 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.listen(port, (req, res) => {
+// fiction books middleware
+app.get('/fiction' , async (req, res) => {
+  try{
+    const books = await User.findOne({
+      "genre" : 'Fiction'
+    });
+    res.render('fiction' , {
+      layout : "layout/container",
+      books,
+      title : "Fiction Books",
+      category,
+    }) 
+  } catch(e) {
+    console.error(e);
+    res.status(500).send("Server Error");
+  }
+})
+
+app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}`);
 });

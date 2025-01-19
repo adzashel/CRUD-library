@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
     name: String,
     author: String,
     image : String,
+    release_date : String,
+    genre : String,
+    description : String,
 });
 
 // new user schema
