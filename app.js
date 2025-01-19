@@ -2,7 +2,7 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
-const {User , NewRelease } = require('./server');
+const { User, NewRelease } = require("./server");
 
 // use ejs
 
@@ -15,31 +15,30 @@ app.use(express.static("public"));
 
 // list
 const category = [
-  { list: "Fiction" },
-  { list: "Phylosophy" },
-  { list: "Biography" },
+  { list: "Fiction", link: "/fiction" },
+  { list: "Phylosophy", link: "/phylosophy" },
+  { list: "Biography", link: "/biography" },
 ];
+
+// link
 
 // middleware
 app.get("/", async (req, res) => {
   try {
     const users = await User.find();
     const newBooks = await NewRelease.find();
-    console.log(newBooks);
     res.render("index", {
       layout: "layout/container",
       users,
       newBooks,
       title: "User List",
-      category
+      category,
     });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
   }
 });
-
-
 
 app.listen(port, (req, res) => {
   console.log(`Server is running on port http://localhost:${port}`);

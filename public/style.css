@@ -8,6 +8,8 @@
   font-family: "Urbanist";
 }
 
+
+
 .books-container {
   margin-top: 2rem;
   display: flex;
@@ -187,11 +189,12 @@ img {
 }
 
 .item-header {
-  border: 0.5px solid #5c5b5b;
   border-radius: 10px;
   background-size: cover; /* Options: cover, contain, 100%, etc. */
   display: flex;
   cursor: pointer;
+  background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,150,253,1) 92%);
 }
 
 .item-header:hover {
@@ -201,7 +204,7 @@ img {
 
 .item-detail {
   padding: 1rem;
-  color: #000;
+  color: #fff;
 }
 
 .item-detail h2 {
@@ -210,7 +213,7 @@ img {
 
 .item-detail .desc {
   width: 250px;
-  white-space: nowrap;
+  height: 50px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
