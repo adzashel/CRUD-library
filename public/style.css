@@ -37,6 +37,7 @@ img {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid #8f8f8f;
+  background-color: #fff;
 }
 
 .navbar-container h1 {
@@ -186,16 +187,30 @@ img {
 }
 
 .item-header {
+  border: 0.5px solid #5c5b5b;
   border-radius: 10px;
   background-size: cover; /* Options: cover, contain, 100%, etc. */
   display: flex;
+  cursor: pointer;
+}
+
+.item-header:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
 }
 
 .item-detail {
   padding: 1rem;
-  color: #fff;
+  color: #000;
 }
 
 .item-detail h2 {
   font-size: 1rem;
+}
+
+.item-detail .desc {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

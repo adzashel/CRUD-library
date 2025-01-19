@@ -21,15 +21,18 @@ const newReleaseSchema = new mongoose.Schema({
     name : String,
     author: String,
     image : String,
-    release_date : Date,
+    release_date : String,
     genre : String,
     description : String,
 })
 
 // create user model
 const User = mongoose.model('books' , userSchema);
-const NewRelease = mongoose.model('newRelease' , newReleaseSchema);
+const NewRelease = mongoose.model('new_books' , newReleaseSchema);
 
 // export user model
 
-module.exports = User;
+module.exports = {
+    User,
+    NewRelease,
+ };

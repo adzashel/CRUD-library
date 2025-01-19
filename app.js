@@ -1,8 +1,8 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
-const User = require("./server");
-const port = 8080;
+const port = 3000;
+const {User , NewRelease } = require('./server');
 
 // use ejs
 
@@ -24,9 +24,12 @@ const category = [
 app.get("/", async (req, res) => {
   try {
     const users = await User.find();
+    const newBooks = await NewRelease.find();
+    console.log(newBooks);
     res.render("index", {
       layout: "layout/container",
-      users: users,
+      users,
+      newBooks,
       title: "User List",
       category
     });
@@ -35,6 +38,8 @@ app.get("/", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+
 
 app.listen(port, (req, res) => {
   console.log(`Server is running on port http://localhost:${port}`);
