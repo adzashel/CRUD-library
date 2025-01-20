@@ -16,7 +16,7 @@ app.use(express.static("public"));
 // list
 const category = [
   { list: "Fiction", link: "/fiction" },
-  { list: "Phylosophy", link: "/phylosophy" },
+  { list: "Phylosophy", link: "/philosophy" },
   { list: "Biography", link: "/biography" },
 ];
 
@@ -53,7 +53,7 @@ app.get("/", async (req, res) => {
       layout: "layout/container",
       users,
       newBooks,
-      title: "User List",
+      title: "Book Library",
       category,
       authors,
     });
@@ -70,7 +70,7 @@ app.get('/fiction' , async (req, res) => {
     const books = await User.find(query);
     const filteredBooks = books.filter(books => books.genre === "Fiction");
     setTimeout(() => {
-      res.render('fiction', {
+      res.render('category', {
         layout : "layout/container",
         filteredBooks,
         title: "Fiction Books",
@@ -81,7 +81,32 @@ app.get('/fiction' , async (req, res) => {
     console.error(e);
     res.status(500).send("Server Error");
   }
-})
+});
+
+// phylosophy books middleware
+app.get('/philosophy', async (req, res) => {
+  const { query } = req.query;
+  try {
+    const books = await User.find(query);
+    const filteredBooks = books.filter(books => books.genre === "Philosophy");
+    setTimeout(() => {
+      res.render('category' , {
+        layout : "layout/container",
+        filteredBooks,
+        title: "Philosophy Books",
+        category,
+      })
+    }, 1500)
+  }catch(err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+});
+
+
+// app.use((req, res) => {
+
+// })
 
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}`);
