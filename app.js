@@ -44,6 +44,17 @@ const authors = [{
  
 ]
 
+
+// functon to call the database
+const filteredBooksByCategory = async(query , genre) => {
+  try{
+    const books = await User.find(query);
+    return books.filter(book => book.genre === genre);
+  }catch(e) {
+    console.error(e);
+  }
+}
+
 // middleware
 app.get("/", async (req, res) => {
   try {
@@ -67,19 +78,18 @@ app.get("/", async (req, res) => {
 app.get('/fiction' , async (req, res) => {
   const {query} = req.query;
   try {
-    const books = await User.find(query);
-    const filteredBooks = books.filter(books => books.genre === "Fiction");
+    const filteredBooks = await filteredBooksByCategory(query , "Fiction");
     setTimeout(() => {
       res.render('category', {
         layout : "layout/container",
-        filteredBooks,
         title: "Fiction Books",
+        filteredBooks,
         category,
     });
     } ,1500)
   }catch(e) {
     console.error(e);
-    res.status(500).send("Server Error");
+    res.send("Server Error").status(500);
   }
 });
 
@@ -87,8 +97,7 @@ app.get('/fiction' , async (req, res) => {
 app.get('/philosophy', async (req, res) => {
   const { query } = req.query;
   try {
-    const books = await User.find(query);
-    const filteredBooks = books.filter(books => books.genre === "Philosophy");
+    const filteredBooks = await filteredBooksByCategory(query , "Philosophy");
     setTimeout(() => {
       res.render('category' , {
         layout : "layout/container",
@@ -107,8 +116,7 @@ app.get('/philosophy', async (req, res) => {
 app.get('/biography' , async (req, res) => {
   const { query } = req.query;
   try {
-    const books = await User.find( query );
-    const filteredBooks = books.filter(books => books.genre === "Biography");
+    const filteredBooks = await filteredBooksByCategory(query , "Biography");
     setTimeout(() => {
       res.render('category' , {
         layout : "layout/container",
@@ -116,7 +124,7 @@ app.get('/biography' , async (req, res) => {
         title: "Biography Books",
         category,
       })
-    })
+    }, 1000)
   }catch(e) {
     console.error(e);
     res.status(500).send("Server Error");
@@ -128,7 +136,7 @@ app.use('/' , (req, res) => {
   res.render('layout/404' , {
     layout: "layout/404-container",
     title: "Page Not Found",
-  }).status(404);
+  });
 })
 
 app.listen(port, () => {
