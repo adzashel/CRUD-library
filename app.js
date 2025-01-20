@@ -20,7 +20,29 @@ const category = [
   { list: "Biography", link: "/biography" },
 ];
 
-// link
+// author
+const authors = [{
+  author: "Friedrich Nietzsche",
+  link: "nietzsche",
+},{
+  author: "Immanuel Kant",
+  link: "kant",
+},
+{
+  author: "Albert Camus",
+  link: "camus",
+},{
+  author: "Beby Chaesara",
+  link: "beby",
+}, {
+  author: "F.Scoot Fitzgerald",
+  link: "fitzgerald",
+}, {
+  author: "Eiichiro Oda",
+  link: "oda",
+}
+ 
+]
 
 // middleware
 app.get("/", async (req, res) => {
@@ -33,6 +55,7 @@ app.get("/", async (req, res) => {
       newBooks,
       title: "User List",
       category,
+      authors,
     });
   } catch (err) {
     console.error(err);
@@ -42,17 +65,19 @@ app.get("/", async (req, res) => {
 
 // fiction books middleware
 app.get('/fiction' , async (req, res) => {
-  try{
-    const books = await User.findOne({
-      "genre" : 'Fiction'
+  const {query} = req.query;
+  try {
+    const books = await User.find(query);
+    const filteredBooks = books.filter(books => books.genre === "Fiction");
+    setTimeout(() => {
+      res.render('fiction', {
+        layout : "layout/container",
+        filteredBooks,
+        title: "Fiction Books",
+        category,
     });
-    res.render('fiction' , {
-      layout : "layout/container",
-      books,
-      title : "Fiction Books",
-      category,
-    }) 
-  } catch(e) {
+    } ,1500)
+  }catch(e) {
     console.error(e);
     res.status(500).send("Server Error");
   }

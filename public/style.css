@@ -12,7 +12,11 @@
   margin-top: 3rem !important;
 }
 
-
+.container-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
 
 .books-container {
   margin-top: 2rem;
@@ -198,7 +202,7 @@ img {
   display: flex;
   cursor: pointer;
   background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,150,253,1) 92%);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,150,253,1) 92%);
 }
 
 .item-header:hover {
@@ -220,4 +224,15 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,150,253,1) 92%)
   height: 50px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.author-section  li a , .author-section li{
+  text-decoration: none;
+  color: #000;
+  list-style-type: none;
+  margin-bottom: 12px;
+}
+
+.author-section {
+  width: 300px;
 }

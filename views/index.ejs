@@ -1,15 +1,25 @@
   <%- include('./layout/newRelease.ejs') %>
   <h3 class="mt-5">For You</h3>
-  <div class="books-container mb-5">
-    <% users.forEach(user => { %>
-      <div class="cards-container">
-       <div class="wrapper">
-          <img src="<%= user.image %>" alt="<%= user.name %>"/>
-          <div class="details">
-            <h2><%= user.name %></h2>
-            <p><%= user.author %></p>
-         </div>
+  <div class="container-wrapper">
+    <div class="books-container mb-5">
+      <% users.forEach(user => { %>
+        <div class="cards-container">
+         <div class="wrapper">
+            <img src="<%= user.image %>" alt="<%= user.name %>"/>
+            <div class="details">
+              <h2><%= user.name %></h2>
+              <p><%= user.author %></p>
+           </div>
+          </div>
         </div>
+       <% }) %>
       </div>
-     <% }) %>
-   </div>
+      <div class="author-section">
+       <h3>Authors</h3>
+       <ul>
+        <% authors.forEach(author => { %>
+          <li><a href="/author/<%= author.link %>"><%= author.author %></a></li>
+        <% }) %>
+       </ul>
+      </div>
+  </div>
