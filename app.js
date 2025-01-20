@@ -103,10 +103,33 @@ app.get('/philosophy', async (req, res) => {
   }
 });
 
+// biography books middleware
+app.get('/biography' , async (req, res) => {
+  const { query } = req.query;
+  try {
+    const books = await User.find( query );
+    const filteredBooks = books.filter(books => books.genre === "Biography");
+    setTimeout(() => {
+      res.render('category' , {
+        layout : "layout/container",
+        filteredBooks,
+        title: "Biography Books",
+        category,
+      })
+    })
+  }catch(e) {
+    console.error(e);
+    res.status(500).send("Server Error");
+  }
+})
 
-// app.use((req, res) => {
 
-// })
+app.use('/' , (req, res) => {
+  res.render('layout/404' , {
+    layout: "layout/404-container",
+    title: "Page Not Found",
+  }).status(404);
+})
 
 app.listen(port, () => {
   console.log(`Server is running on port http://localhost:${port}`);

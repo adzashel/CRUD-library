@@ -8,6 +8,8 @@
   font-family: "Urbanist";
 }
 
+
+
 .container {
   margin-top: 3rem !important;
 }
@@ -234,5 +236,11 @@ img {
 }
 
 .author-section {
-  width: 300px;
+  width: 350px;
+  padding: 1rem;
+  height: 460px;
+  border-radius: 10px;
+  background-color: #f8f8ff;
 }
+
+
