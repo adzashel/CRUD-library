@@ -3,6 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
 const { User, NewRelease  } = require("./server");
+const { category , authors } = require('./lists').default
 
 // use ejs
 
@@ -12,38 +13,6 @@ app.use(expressLayouts);
 // middleware for static files
 
 app.use(express.static("public"));
-
-// list
-const category = [
-  { list: "Fiction", link: "/fiction" },
-  { list: "Phylosophy", link: "/philosophy" },
-  { list: "Biography", link: "/biography" },
-];
-
-// author
-const authors = [{
-  author: "Friedrich Nietzsche",
-  link: "nietzsche",
-},{
-  author: "Immanuel Kant",
-  link: "kant",
-},
-{
-  author: "Albert Camus",
-  link: "camus",
-},{
-  author: "Beby Chaesara",
-  link: "beby",
-}, {
-  author: "F.Scoot Fitzgerald",
-  link: "fitzgerald",
-}, {
-  author: "Eiichiro Oda",
-  link: "oda",
-}
- 
-]
-
 
 // functon to call the database
 const filteredBooksByCategory = async(query , genre) => {
@@ -125,6 +94,47 @@ app.get('/biography' , async (req, res) => {
         category,
       })
     }, 1000)
+  }catch(e) {
+    console.error(e);
+    res.status(500).send("Server Error");
+  }
+});
+
+
+// self improvement middleware
+app.get('/self-improvement' , async (req, res) => {
+  const { query } = req.query;
+  try  {
+    const filteredBooks = await filteredBooksByCategory(query , "Self Improvement");
+    setTimeout(() => {
+      res.render('category' , {
+        layout : "layout/container",
+        filteredBooks,
+        title: "Self Improvement Books",
+        category,
+      })
+    }, 1500);
+  }catch(e) {
+    console.error(e);
+    res.status(500).send("Server Error");
+  }
+});
+
+
+app.get('/author/:id' , async (req, res) => {
+  const author = req.params.id;
+  const { query } = req.query;
+  try {
+    const books = await User.find(query);
+    const filteredBooks = books.filter(book => book.author === author);
+    setTimeout(() => {
+      res.render('category' , {
+        layout : "layout/container",
+        filteredBooks,
+        title: `Books by ${author}`,
+        category,
+      })
+    },1000)
   }catch(e) {
     console.error(e);
     res.status(500).send("Server Error");
