@@ -1,7 +1,7 @@
 // list
 const category = [
     { list: "Fiction", link: "/fiction" },
-    { list: "Phylosophy", link: "/philosophy" },
+    { list: "Philosophy", link: "/philosophy" },
     { list: "Biography", link: "/biography" },
     { list: "Self Improvement", link: "/self-improvement" },
     { list: "Manga", link: "/manga" },

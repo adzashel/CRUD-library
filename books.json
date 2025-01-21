@@ -1,17 +1,26 @@
 [
     {
-        "name" : "An Illustrated Biography: Warren Buffett",
-        "author" : "Ayano Morio",
-        "image" : "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/9789792729498_Cover_Warren_Buffett.jpg"
+        "name" : "Obat Dungu Resep Akal Sehat",
+        "author" : "Rocky Gerung",
+        "genre" : "Philosophy",
+        "publicationYear" : "2018",
+        "image" : "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1708310063i/208852658.jpg",
+        "description" : "Ada 85 tulisan Rocky Gerung di dalam buku ini. Disusun secara kronologis dari masa Rocky masih mahasiswa di Fakultas Sastra UI pada 1985 sampai 2018, saat ia menjadi intelektual yang paling banyak dicari dan diperhitungkan pandangannya di Indonesia. Melalui Kumpulan tulisan ini maka pembaca dapat mengetahui dengan penuh dan benar pemikiran Rocky melalui pembacaan langsung artikel, kolom yang singkat atau esei-eseinya yang panjang bercatatan kaki."
     },
     {
-        "name" : "The 7 Habits of Highly Effective People",
-        "author" : "Ray Kroc",
-        "image" : "https://images-na.ssl-images-amazon.com/images/I/51D8189L3TL._SX311_BO1,204,203,200_.jpg"
+        "name" : "Detektif Conan",
+        "author" : "Aoyama Gosho",
+        "genre" : "Manga",
+        "publicationYear" : "17 December 2024",
+        "image" : "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/products/3o3i8-03tc.jpg",
+        "description" : "Kelompok Naruto berpartisipasi dalam ujian seleksi Chuunin atas rekomendasi Guru Kakashi! Sebelum sampai ke tempat ujian, ada seseorang yang menantang Sasuke. Inikah pertanda akan terwujudnya suatu hal yang mengerikan? Kemudian tes kedua ujian seleksi Chuunin pun dimulai!! Naruto dan teman-teman terlibat dalam pertarungan merebut gulungan di hutan yang mengerikan. Namun, ada sesuatu yang tak jelas asalnya mulai bergerak di balik ujian ini. Bagaimana kelanjutan ujian yang mempertaruhkan nyawa para pesertanya ini!?"
     },
     {
-        "name" : "Jerusalem The Biography",
-        "author" : "Simon Sebag Montefiore",
-        "image" : "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/9786029193022_Jerusalem-The-Biography.jpg"
+        "name" : "Demon Slayer: Kimetsu no Yaiba 02",
+        "author" : "Koyoharu Gotouge",
+        "genre" : "Manga",
+        "publicationYear" : "9 September 2024",
+        "image" : "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/9786230018220_Demon_Slayer_2_logo_di_kecilin-1.jpg",
+        "description" : "Setelah berhasil melewati seleksi akhir ujian untuk menjadi anggota Kisatsutai,Tanjiro ditemani Nezuko yang telah sadarkan diri, pergi ke suatu kota di mana para gadis muda dikabarkan menghilang secara misterius...!! Apakah ini juga ulah iblis!?"
     }
 ]

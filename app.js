@@ -121,6 +121,25 @@ app.get('/self-improvement' , async (req, res) => {
 });
 
 
+app.get('/manga' , async (req, res) => {
+  const { query } = req.query;
+  try {
+    const filteredBooks = await filteredBooksByCategory(query , "Manga");
+    setTimeout(() => {
+      res.render('category' , {
+        layout : "layout/container",
+        filteredBooks,
+        title: "Manga Books",
+        category,
+      })
+    }, 1500)
+  }catch(e) {
+    console.error(e);
+    res.status(500).send("Server Error");
+  }
+})
+
+
 app.get('/author/:id' , async (req, res) => {
   const author = req.params.id;
   const { query } = req.query;
