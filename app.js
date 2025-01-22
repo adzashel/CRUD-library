@@ -4,6 +4,8 @@ const app = express();
 const port = 3000;
 const { User, NewRelease } = require("./server");
 const { category, authors } = require("./lists").default;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 
 // use ejs
 
@@ -25,7 +27,7 @@ const filteredBooksByCategory = async (query, genre) => {
 };
 
 // load more books
-const itemsPerPage = 10;
+const itemsPerPage = 12;
 
 // middleware
 app.get("/", async (req, res) => {
@@ -173,6 +175,18 @@ app.get("/author/:id", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+// search book middleware
+app.get('/search' , async (req, res) => {
+  const search  = req.query.q;
+  try {
+    const books = await User.find({ "name": { $regex: search, $options: 'i' } },)
+    res.json(books);
+  }catch(e) {
+    console.error(e);
+    res.status(500).send('Server Error')
+  }
+})
 
 app.use("/", (req, res) => {
   res.render("layout/404", {

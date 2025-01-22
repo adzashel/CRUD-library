@@ -10,7 +10,7 @@ const category = [
   // author
   const authors = [{
     author: "Friedrich Nietzsche",
-    link: "Freidrich Nietzsche",
+    link: "Friedrich Nietzsche",
   },{
     author: "Immanuel Kant",
     link: "Immanuel Kant",
