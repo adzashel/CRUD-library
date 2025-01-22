@@ -31,6 +31,15 @@ a {
   flex-wrap: wrap;
 }
 
+.load-btn {
+  padding: 10px 20px;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
 
 img {
   height: 170px;
@@ -251,3 +260,27 @@ img {
 }
 
 
+
+/* laptop responsive */
+
+@media  only screen and (min-width: 1280px) and (max-width: 1400px) {
+  .item-header {
+    width: 350px;
+  }
+
+  .item-detail h2 , .item-detail p  {
+    font-size: 10px;
+    width: 100px;
+  }
+
+  .item-detail .desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 150px;
+  }
+
+  .author-section {
+    margin-right: 3rem;
+  }
+}

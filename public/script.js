@@ -1,4 +1,3 @@
-
 const drawVisor = () => {
     const canvas = document.getElementById('visor');
     const ctx = canvas.getContext('2d');

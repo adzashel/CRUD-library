@@ -2,7 +2,7 @@
   <h3 class="mt-5">For You</h3>
   <div class="container-wrapper">
     <div class="books-container mb-5">
-      <% users.forEach(user => { %>
+      <% data.forEach(user => { %>
         <div class="cards-container">
          <div class="wrapper">
             <img src="<%= user.image %>" alt="<%= user.name %>"/>
@@ -12,7 +12,7 @@
            </div>
           </div>
         </div>
-       <% }) %>
+        <% }) %>
       </div>
       <div class="author-section">
        <h3>Authors</h3>
@@ -23,3 +23,8 @@
        </ul>
       </div>
   </div>
+ <div class="load-btn">
+  <% if (hasLoadPage) { %>
+    <a href="/?page=<%= currentPage + 1 %>" >Load More</a>
+   <% } %>
+ </div>
