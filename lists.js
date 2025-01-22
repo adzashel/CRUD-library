@@ -31,7 +31,43 @@ const category = [
    
   ]
 
+
+//functon to call the database
+const filteredBooksByCategory = async (query, genre) => {
+  try {
+    const books = await User.find(query);
+    return books.filter((book) => book.genre === genre);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+// load more books
+const itemsPerPage = 12;
+
+const paginatedBooks = async (model , req ) => {
+  const pagination =   req.query.page;
+  let page = parseInt(pagination) || 1;
+  const startIndex = (page - 1) * itemsPerPage;
+  const lastIndex = startIndex + itemsPerPage;
+ 
+  try {
+    const booksData = await model.find();
+    const pageData = booksData.slice(startIndex, lastIndex);
+    const hasLoadPage = lastIndex < booksData.length;
+
+    return { data : pageData , hasLoadPage , page}
+  }catch(e) {
+    console.error(e);
+    return { data: [], hasLoadPage: false }
+  }
+}
+
+
+
 export default  {
     category,
     authors,
+    filteredBooksByCategory,
+    paginatedBooks,
  };

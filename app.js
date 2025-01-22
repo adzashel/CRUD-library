@@ -3,9 +3,10 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
 const { User, NewRelease } = require("./server");
-const { category, authors } = require("./lists").default;
+const { category, authors, filteredBooksByCategory, paginatedBooks } =
+  require("./lists").default;
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 
 // use ejs
 
@@ -16,42 +17,25 @@ app.use(expressLayouts);
 
 app.use(express.static("public"));
 
-// functon to call the database
-const filteredBooksByCategory = async (query, genre) => {
-  try {
-    const books = await User.find(query);
-    return books.filter((book) => book.genre === genre);
-  } catch (e) {
-    console.error(e);
-  }
-};
-
-// load more books
-const itemsPerPage = 12;
-
 // middleware
 app.get("/", async (req, res) => {
   try {
-    const users = await User.find();
+    const books = await paginatedBooks(User, req);
     const newBooks = await NewRelease.find();
-    if (users && newBooks) {
-      let page = parseInt(req.query.page) || 1;
-      const startIndex = (page - 1) * itemsPerPage;
-      const lastIndex = startIndex + itemsPerPage;
-      const currentBooks = users.slice(startIndex, lastIndex);
-      const hasLoadPage = lastIndex < users.length;
+
+    if (books && newBooks) {
       res.render("index", {
         layout: "layout/container",
+        title: "Library",
+        books: books.data,
         newBooks,
-        title: "Book Library",
-        category,
         authors,
-        currentPage: page,
-        data: currentBooks,
-        hasLoadPage,
+        category,
+        pagination: books.hasLoadPage,
+        currentPage: books.page,
       });
-    } else{
-      res.send('Error load the book library').status(404)
+    } else {
+      res.status(404).send("Page not found");
     }
   } catch (err) {
     console.error(err);
@@ -177,16 +161,31 @@ app.get("/author/:id", async (req, res) => {
 });
 
 // search book middleware
-app.get('/search' , async (req, res) => {
-  const search  = req.query.q;
+app.get("/search", async (req, res) => {
+  const search = req.query.q;
   try {
-    const books = await User.find({ "name": { $regex: search, $options: 'i' } },)
-    res.json(books);
-  }catch(e) {
+    const books = await User.find({
+      $or: [
+        { name: { $regex: search, $options: "i" } },
+        { author: { $regex: search, $options: "i" } },
+        { genre: { $regex: search, $options: "i" } },
+      ],
+    });
+    if (books.length < 1) {
+      res.send("404").status(404);
+    } else {
+      res.render("category", {
+        layout: "layout/container",
+        filteredBooks: books,
+        title: `Search results for "${search}"`,
+        category,
+      });
+    }
+  } catch (e) {
     console.error(e);
-    res.status(500).send('Server Error')
+    res.status(500).send("Server Error");
   }
-})
+});
 
 app.use("/", (req, res) => {
   res.render("layout/404", {
