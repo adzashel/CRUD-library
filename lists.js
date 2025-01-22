@@ -32,15 +32,6 @@ const category = [
   ]
 
 
-//functon to call the database
-const filteredBooksByCategory = async (query, genre) => {
-  try {
-    const books = await User.find(query);
-    return books.filter((book) => book.genre === genre);
-  } catch (e) {
-    console.error(e);
-  }
-};
 
 // load more books
 const itemsPerPage = 12;
@@ -64,10 +55,8 @@ const paginatedBooks = async (model , req ) => {
 }
 
 
-
 export default  {
     category,
     authors,
-    filteredBooksByCategory,
     paginatedBooks,
  };

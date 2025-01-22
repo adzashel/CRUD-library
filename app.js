@@ -3,7 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
 const { User, NewRelease } = require("./server");
-const { category, authors, filteredBooksByCategory, paginatedBooks } =
+const { category, authors, paginatedBooks } =
   require("./lists").default;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +16,18 @@ app.use(expressLayouts);
 // middleware for static files
 
 app.use(express.static("public"));
+
+
+//functon to call the database
+const filteredBooksByCategory = async (query, genre) => {
+  try {
+    const books = await User.find(query);
+    return books.filter((book) => book.genre === genre);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 
 // middleware
 app.get("/", async (req, res) => {
@@ -186,6 +198,26 @@ app.get("/search", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+// get detail books
+app.get('/detail/:id' , async (req, res) => {
+  const id = req.params.id;
+  try {
+    const book = await User.findById(id);
+    if (!book) {
+      return res.status(404).send('Book not found');
+    }
+    res.render('detail' , {
+      layout: "layout/container",
+      title: book.name,
+      book,
+      category
+    })
+  }catch(e) {
+    console.error(e);
+    res.status(500).send('Server Error');
+  }
+})
 
 app.use("/", (req, res) => {
   res.render("layout/404", {
