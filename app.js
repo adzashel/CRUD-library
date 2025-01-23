@@ -204,15 +204,37 @@ app.get('/detail/:id' , async (req, res) => {
   const id = req.params.id;
   try {
     const book = await User.findById(id);
-    if (!book) {
+    const newBooks = await NewRelease.findById(id);
+    if (!book && !newBooks) {
       return res.status(404).send('Book not found');
     }
     res.render('detail' , {
       layout: "layout/container",
       title: book.name,
       book,
-      category
+      category,
+      newBooks
     })
+
+  }catch(e) {
+    console.error(e);
+    res.status(500).send('Server Error');
+  }
+})
+app.get('/new-books-detail/:id' , async (req, res) => {
+  const id = req.params.id;
+  try {
+    const newBooks = await NewRelease.findById(id);
+    if (!newBooks) {
+      return res.status(404).send('Book not found');
+    }
+    res.render('new-detail' , {
+      layout: "layout/container",
+      title: newBooks.name,
+      category,
+      newBooks
+    })
+
   }catch(e) {
     console.error(e);
     res.status(500).send('Server Error');

@@ -5,7 +5,9 @@
       <% books.forEach(user => { %>
         <div class="cards-container">
          <div class="wrapper">
+           <a href="/detail/<%= user.id %>">
             <img src="<%= user.image %>" alt="<%= user.name %>"/>
+           </a>
             <div class="details">
               <h2><%= user.name %></h2>
               <p><%= user.author %></p>
