@@ -267,6 +267,7 @@ img {
 .detail-page-container {
   display: flex;
   margin: 0;
+  width: 1200px;
   color: #5c5b5b;
 }
 
@@ -280,11 +281,16 @@ img {
 }
 
 
+.desc {
+  text-align: justify;
+}
+
 
 .detail-items {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr repeat(1, 1fr);
   column-gap: 3rem;
+  width: 550px;
 }
 
 .detail-items p  , .detail-items strong {
@@ -292,6 +298,14 @@ img {
   display: block;
 }
 
+
+.aside-detail {
+  margin-top: 3rem;
+}
+
+.detail-wrapper h2  {
+  margin-bottom: 1em;
+}
 
 
 

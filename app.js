@@ -3,7 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
 const { User, NewRelease } = require("./server");
-const { category, authors, paginatedBooks , linkAuthors} =
+const { category, authors, paginatedBooks, linkAuthors } =
   require("./lists").default;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -17,7 +17,6 @@ app.use(expressLayouts);
 
 app.use(express.static("public"));
 
-
 //functon to call the database
 const filteredBooksByCategory = async (query, genre) => {
   try {
@@ -27,7 +26,6 @@ const filteredBooksByCategory = async (query, genre) => {
     console.error(e);
   }
 };
-
 
 // middleware
 app.get("/", async (req, res) => {
@@ -200,45 +198,43 @@ app.get("/search", async (req, res) => {
 });
 
 // get detail books
-app.get('/detail/:id' , async (req, res) => {
+app.get("/detail/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const book = await User.findById(id);
     if (!book) {
-      return res.status(404).send('Book not found');
+      return res.status(404).send("Book not found");
     }
-    res.render('detail' , {
+    res.render("detail", {
       layout: "layout/container",
       title: book.name,
       book,
       category,
-      linkAuthors
-    })
-
-  }catch(e) {
+      linkAuthors,
+    });
+  } catch (e) {
     console.error(e);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
-})
-app.get('/new-books-detail/:id' , async (req, res) => {
+});
+app.get("/new-books-detail/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const newBooks = await NewRelease.findById(id);
     if (!newBooks) {
-      return res.status(404).send('Book not found');
+      return res.status(404).send("Book not found");
     }
-    res.render('new-detail' , {
+    res.render("new-detail", {
       layout: "layout/container",
       title: newBooks.name,
       category,
-      newBooks
-    })
-
-  }catch(e) {
+      newBooks,
+    });
+  } catch (e) {
     console.error(e);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
-})
+});
 
 app.use("/", (req, res) => {
   res.render("layout/404", {

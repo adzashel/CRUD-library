@@ -6,7 +6,8 @@
         <div class="detail-wrapper">
             <h4><%= book.author %></h4>
             <h2><%= book.name %></h2>
-            <p><%= book.description %></p>
+            <h5>Description</h5>
+            <p class="desc"><%= book.description %></p>
 
             <div class="details">
                 <h2>Book Detail</h2>
@@ -17,6 +18,7 @@
                 </div>
             </div>
         </div>
-    <% } %>
+        <% } %>
     </div>
+    <%- include('./layout/authorRelated.ejs') %>
 </div>
