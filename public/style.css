@@ -267,6 +267,7 @@ img {
 .detail-page-container {
   display: flex;
   margin: 0;
+  color: #5c5b5b;
 }
 
 .img-container {
@@ -277,6 +278,20 @@ img {
   width: 250px;
   height: 400px;
 }
+
+
+
+.detail-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3rem;
+}
+
+.detail-items p  , .detail-items strong {
+  font-size: 1rem;
+  display: block;
+}
+
 
 
 

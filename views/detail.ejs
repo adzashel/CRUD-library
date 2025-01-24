@@ -7,17 +7,16 @@
             <h4><%= book.author %></h4>
             <h2><%= book.name %></h2>
             <p><%= book.description %></p>
-        </div>
-    <% } else if(newBooks){%>
-        <div class="img-container">
-            <img src="<%= newBooks.image %>" alt="">
-        </div>
-        <div class="detail-wrapper">
-            <h4><%= newBooks.author %></h4>
-            <h2><%= newBooks.name %></h2>
-            <p><%= newBooks.description %></p>
-        </div>
-        <% } %>
-    </div>
 
+            <div class="details">
+                <h2>Book Detail</h2>
+                <div class="detail-items">
+                    <p><strong>Published Date:</strong> <%= book.release_date %></p>
+                    <p><strong>Genre:</strong> <%= book.genre %></p>
+                    <p><strong>Authors:</strong> <%= book.author%></a></p>
+                </div>
+            </div>
+        </div>
+    <% } %>
+    </div>
 </div>

@@ -3,7 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
 const { User, NewRelease } = require("./server");
-const { category, authors, paginatedBooks } =
+const { category, authors, paginatedBooks , linkAuthors} =
   require("./lists").default;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -204,8 +204,7 @@ app.get('/detail/:id' , async (req, res) => {
   const id = req.params.id;
   try {
     const book = await User.findById(id);
-    const newBooks = await NewRelease.findById(id);
-    if (!book && !newBooks) {
+    if (!book) {
       return res.status(404).send('Book not found');
     }
     res.render('detail' , {
@@ -213,7 +212,7 @@ app.get('/detail/:id' , async (req, res) => {
       title: book.name,
       book,
       category,
-      newBooks
+      linkAuthors
     })
 
   }catch(e) {

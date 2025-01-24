@@ -31,8 +31,6 @@ const category = [
    
   ]
 
-
-
 // load more books
 const itemsPerPage = 12;
 
