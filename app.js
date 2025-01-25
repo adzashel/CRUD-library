@@ -202,6 +202,8 @@ app.get("/detail/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const book = await User.findById(id);
+    const filteredBook = await User.find();
+    const filterdByAuthor = filteredBook.filter(item => item.author === book.author);
     if (!book) {
       return res.status(404).send("Book not found");
     }
@@ -210,7 +212,7 @@ app.get("/detail/:id", async (req, res) => {
       title: book.name,
       book,
       category,
-      linkAuthors,
+      otherBooks : filterdByAuthor      
     });
   } catch (e) {
     console.error(e);
