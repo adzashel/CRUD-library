@@ -1,32 +1,38 @@
-  <%- include('./layout/newRelease.ejs') %>
-  <h3 class="mt-5">For You</h3>
-  <div class="container-wrapper">
-    <div class="books-container mb-5">
-      <% books.forEach(user => { %>
-        <div class="cards-container">
-         <div class="wrapper">
-           <a href="/detail/<%= user.id %>">
-            <img src="<%= user.image %>" alt="<%= user.name %>"/>
-           </a>
-            <div class="details">
-              <h2><%= user.name %></h2>
-              <p><%= user.author %></p>
-           </div>
-          </div>
+<%- include('./layout/newRelease.ejs') %>
+<h3 class="mt-5">For You</h3>
+<div class="container-wrapper">
+  <div class="books-container mb-5">
+    <% books.forEach(user => { %>
+    <div class="cards-container">
+      <div class="wrapper">
+        <a href="/detail/<%= user.id %>">
+          <img src="<%= user.image %>" alt="<%= user.name %>" />
+        </a>
+        <div class="details">
+          <h2><%= user.name %></h2>
+          <p><%= user.author %></p>
         </div>
-        <% }) %>
       </div>
-      <div class="author-section">
-       <h3>Authors</h3>
-       <ul>
-        <% authors.forEach(author => { %>
-          <li><a href="/author/<%= author.link %>"><%= author.author %></a></li>
-        <% }) %>
-       </ul>
-      </div>
+    </div>
+    <% }) %>
   </div>
- <div class="load-btn">
+  <div class="author-section">
+    <h3>Authors</h3>
+    <ul>
+      <% authors.forEach(author => { %>
+      <div class="author-item">
+        <img
+          src="<%= author.image %>"
+          alt=""
+        />
+        <li><a href="/author/<%= author.link %>"><%= author.author %></a></li>
+      </div>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+<div class="load-btn">
   <% if (pagination) { %>
-    <a href="/?page=<%= currentPage + 1 %>" >Load More</a>
-   <% } %>
- </div>
+  <a href="/?page=<%= currentPage + 1 %>">Load More</a>
+  <% } %>
+</div>

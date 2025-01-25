@@ -3,7 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
 const { User, NewRelease } = require("./server");
-const { category, authors, paginatedBooks, linkAuthors } =
+const { category, authors, paginatedBooks , filteredBooksByCategory } =
   require("./lists").default;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -17,15 +17,6 @@ app.use(expressLayouts);
 
 app.use(express.static("public"));
 
-//functon to call the database
-const filteredBooksByCategory = async (query, genre) => {
-  try {
-    const books = await User.find(query);
-    return books.filter((book) => book.genre === genre);
-  } catch (e) {
-    console.error(e);
-  }
-};
 
 // middleware
 app.get("/", async (req, res) => {

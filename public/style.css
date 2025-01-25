@@ -248,7 +248,21 @@ img {
   text-decoration: none;
   color: #000;
   list-style-type: none;
-  margin-bottom: 12px;
+}
+
+.author-item {
+  display: flex;
+  width: 250px;
+  justify-content: start;
+  align-items: center;
+  margin-top: -1rem;
+  margin-left: -3rem;
+}
+
+.author-section img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .author-section h3 {
