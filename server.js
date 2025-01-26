@@ -1,12 +1,13 @@
 // connect mongodb
 const mongoose = require('mongoose');
+const chalk = require('chalk');
 
 mongoose.connect('mongodb://localhost:27017/books_data' , {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
 .then(() => {
-    console.log('Connected to MongoDB');
+    console.log(chalk.bgGreenBright('Connected to MongoDB'));
 }).catch(err => console.error(err));
 
 // create user schema

@@ -219,8 +219,12 @@ img {
   background-size: cover; /* Options: cover, contain, 100%, etc. */
   display: flex;
   cursor: pointer;
-  background: rgb(34,193,195);
-  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,150,253,1) 92%);
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(45, 150, 253, 1) 92%
+  );
 }
 
 .item-header:hover {
@@ -244,7 +248,8 @@ img {
   text-overflow: ellipsis;
 }
 
-.author-section  li a , .author-section li{
+.author-section li a,
+.author-section li {
   text-decoration: none;
   color: #000;
   list-style-type: none;
@@ -289,16 +294,14 @@ img {
   margin-right: 2rem;
 }
 
-.img-container img{
+.img-container img {
   width: 250px;
   height: 400px;
 }
 
-
 .desc {
   text-align: justify;
 }
-
 
 .detail-items {
   display: grid;
@@ -307,31 +310,58 @@ img {
   width: 550px;
 }
 
-.detail-items p  , .detail-items strong {
+.detail-items p,
+.detail-items strong {
   font-size: 1rem;
   display: block;
 }
-
 
 .aside-detail {
   margin-top: 5rem;
 }
 
-.detail-wrapper h2  {
+.detail-wrapper h2 {
   margin-bottom: 1em;
 }
 
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 1200px;
+  margin-bottom: 5rem;
+  position: relative;
+}
 
+.cards {
+  flex: 0 0 auto; /* Prevent stretching */
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
 
 
 /* laptop responsive */
 
-@media  only screen and (min-width: 1280px) and (max-width: 1400px) {
+@media only screen and (min-width: 1280px) and (max-width: 1400px) {
   .item-header {
     width: 350px;
   }
 
-  .item-detail h2 , .item-detail p  {
+  .item-detail h2,
+  .item-detail p {
     font-size: 10px;
     width: 100px;
   }

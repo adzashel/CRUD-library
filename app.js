@@ -3,6 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const port = 3000;
 const { User, NewRelease } = require("./server");
+const chalk = require('chalk');
 const { category, authors, paginatedBooks , filteredBooksByCategory } =
   require("./lists").default;
 app.use(express.json());
@@ -58,7 +59,7 @@ app.get("/fiction", async (req, res) => {
       });
     }, 1500);
   } catch (e) {
-    console.error(e);
+    console.error(chalk.bgRedBright(e));
     res.send("Server Error").status(500);
   }
 });
@@ -237,5 +238,5 @@ app.use("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port http://localhost:${port}`);
+  console.log(chalk.bgCyanBright(`Server is running on port http://localhost:${port}`));
 });

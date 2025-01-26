@@ -1,26 +1,26 @@
 [
-    {
-        "name" : "Beyond Good And Evil : Melampaui Baik Dan Jahat",
-        "author" : "Freidrich Nietzsche",
-        "genre" : "Philosophy",
-        "publicationYear" : "22 February 2023",
-        "image" : "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2023/2/22/tghlbvlx4pu3ccfttvkndz.jpg",
-        "description" : "'Segala sesuatu yang dilakukan demi cinta selalu terjadi jauh di luar kebaikan dan kejahatan.'Nietzsche, salah satu pemikir paling ikonik dalam sejarah, dengan keras menolak gagasan baik dan jahat serta keberadaan Tuhan. Buku Beyond Good and Evil menunjukkan bagaimana dunia ini penuh dengan kesalehan palsu dan 'moralitas budak'. Nietzsche menyerukan setiap orang untuk memaksakan 'kehendak untuk berkuasa' mereka sendiri di dunia dengan kecerdasan dan kekuatan subversif.Konsep-konsep dari buku Nietzsche sebelumnya, Thus Spoke Zarathustra, ditarik dan diperluas dalam Beyond Good and Evil. Akan tetapi, dengan sudut pandang yang lebih kritis dan polemik. Nietzsche menuduh para filsuf kurang memiliki keterampilan berpikir kritis dan menerima premis dogmatis begitu saja. Ia menuduh mereka secara khusus membangun sistem metafisika yang rumit. Khususnya pada gagasan bahwa orang baik adalah antitesis dari orang jahat dan bukan sekadar ekspresi lain dari impuls mendasar yang terwujud lebih jelas dalam orang jahat.'Segala sesuatu yang dilakukan demi cinta selalu terjadi jauh di luar kebaikan dan kejahatan.'"
-    },
-    {
-        "name" : "Detektif Conan",
-        "author" : "Aoyama Gosho",
-        "genre" : "Manga",
-        "publicationYear" : "17 December 2024",
-        "image" : "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/products/3o3i8-03tc.jpg",
-        "description" : "Kelompok Naruto berpartisipasi dalam ujian seleksi Chuunin atas rekomendasi Guru Kakashi! Sebelum sampai ke tempat ujian, ada seseorang yang menantang Sasuke. Inikah pertanda akan terwujudnya suatu hal yang mengerikan? Kemudian tes kedua ujian seleksi Chuunin pun dimulai!! Naruto dan teman-teman terlibat dalam pertarungan merebut gulungan di hutan yang mengerikan. Namun, ada sesuatu yang tak jelas asalnya mulai bergerak di balik ujian ini. Bagaimana kelanjutan ujian yang mempertaruhkan nyawa para pesertanya ini!?"
-    },
-    {
-        "name" : "Demon Slayer: Kimetsu no Yaiba 02",
-        "author" : "Koyoharu Gotouge",
-        "genre" : "Manga",
-        "publicationYear" : "9 September 2024",
-        "image" : "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/9786230018220_Demon_Slayer_2_logo_di_kecilin-1.jpg",
-        "description" : "Setelah berhasil melewati seleksi akhir ujian untuk menjadi anggota Kisatsutai,Tanjiro ditemani Nezuko yang telah sadarkan diri, pergi ke suatu kota di mana para gadis muda dikabarkan menghilang secara misterius...!! Apakah ini juga ulah iblis!?"
-    }
+  {
+    "name": "Learning PHP, MySQL & JavaScript: With jQuery, CSS & HTML5",
+    "author": "Robin Nixon",
+    "genre": "Computer Program language , Javascript , PHP , SQL",
+    "release_date": "14 December 2014",
+    "image" : "https://covers.openlibrary.org/b/id/8507130-M.jpg",
+    "description" : "Learning PHP, MySQL & JavaScript will teach you how to create responsive, data-driven websites with the three central technologies of PHP, MySQL and JavaScript - whether or not you know how to program. This simple, streamlined guide explains how the powerful combination of PHP and MySQL provides a painless way to build modern websites with dynamic data and user interaction.You'll also learn how to add JavaScript to create rich Internet websites and applications, and how to use Ajax to handle background communication with a web server. This book explains each technology separately, shows you how to combine them, and introduces valuable concepts in modern web programming, including objects, XHTML, cookies, regular expressions and session management."
+  },
+  {
+    "name": "HTML 5 and Javascript for Beginner",
+    "author": "Jubilee Enterprise",
+    "genre": "Computer Program language , Javascript",
+    "release_date": "17 March 2021",
+    "image": "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/9786230024320_Cov_HTML5_dan_Javascript_untuk_Pemula.jpg",
+    "description": "Ilmu membuat website tersedia di dalam HTML5 dan Javascript. Buku ini adalah referensi yang lengkap, to-the point, dan mudah dipahami untuk penggunaan HTML5, Javascript, dan topik lainnya tentang web design, seperti style sheet dan framework Javascript. Tidak memandang apakah Anda awam atau pernah mengenal HTML sebelumnya, buku ini dirancang untuk Anda. Di dalam buku ini, kami akan mengajari cara membangun website memakai HTML5 dan Javascript secara efektif, singkat, tepat, dan jelas! Pembahasan akan dimulai dari cara menginstal editor gratis dari internet."
+  },
+  {
+    "name": "Nietzche: Sebuah Biografi",
+    "author": "Emhaf",
+    "genre": "Biography",
+    "publicationYear":"15 Mei 2022",
+    "image": "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/nietzsche.jpg",
+    "description" : "Tidak,' jawab Zarathustra, Aku tidak memberi sedekah. Aku belum terlalu miskin untuk itu.Nietzsche hadri dalam buku ini sebagai bentrokan dan pergumulan. Ia dalam tulisan-tulisannya melakukan pemaduan dari dualisme dan kontradiksi. Dionysus dan Apollo adalah tokoh besarnya dalam pergumulan ini. Kedua itu sama sekali berbeda, namun Nietzsche menghadirkannya dalam sebuah pemanggungan drama yang apik, tersinkronisasi."
+}
 ]
