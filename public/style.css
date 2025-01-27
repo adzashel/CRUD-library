@@ -324,6 +324,12 @@ img {
   margin-bottom: 1em;
 }
 
+
+.details h6 {
+  text-align: justify;
+  font-size: 12px;
+  margin-top: 1em;
+}
 .carousel-container {
   display: flex;
   overflow-x: auto;
@@ -342,17 +348,12 @@ img {
 }
 
 
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #f0f0f0;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
+.no-books-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-
 /* laptop responsive */
 
 @media only screen and (min-width: 1280px) and (max-width: 1400px) {

@@ -58,14 +58,6 @@ const paginatedBooks = async (model , req ) => {
   }
 }
 
-const filteredBooksByCategory = async (query, genre) => {
-  try {
-    const books = await User.find(query);
-    return books.filter((book) => book.genre === genre);
-  } catch (e) {
-    console.error(e);
-  }
-};
 
 
 
@@ -74,5 +66,4 @@ export default  {
     category,
     authors,
     paginatedBooks,
-    filteredBooksByCategory,
  };

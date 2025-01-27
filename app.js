@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 const { User, NewRelease } = require("./server");
 const chalk = require('chalk');
-const { category, authors, paginatedBooks , filteredBooksByCategory } =
+const { category, authors, paginatedBooks  } =
   require("./lists").default;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +18,16 @@ app.use(expressLayouts);
 
 app.use(express.static("public"));
 
+
+
+const filteredBooksByCategory = async (query, genre) => {
+  try {
+    const books = await User.find(query);
+    return books.filter((book) => book.genre === genre);
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 // middleware
 app.get("/", async (req, res) => {
@@ -174,7 +184,11 @@ app.get("/search", async (req, res) => {
       ],
     });
     if (books.length < 1) {
-      res.send("404").status(404);
+      res.render("noBooks", {
+        layout: "layout/container",
+        title: "Page Not Found",
+        category
+      });
     } else {
       res.render("category", {
         layout: "layout/container",
@@ -240,3 +254,5 @@ app.use("/", (req, res) => {
 app.listen(port, () => {
   console.log(chalk.bgCyanBright(`Server is running on port http://localhost:${port}`));
 });
+
+
