@@ -1,14 +1,23 @@
 <div class="detail-page-container">
-    <% if (newBooks) { %>
+    <% if (book) { %>
         <div class="img-container">
-            <img src="<%= newBooks.image %>" alt="">
+            <img src="<%= book.image %>" alt="">
         </div>
         <div class="detail-wrapper">
-            <h4><%= newBooks.author %></h4>
-            <h2><%= newBooks.name %></h2>
-            <p><%= newBooks.description %></p>
+            <h4><%= book.author %></h4>
+            <h2><%= book.name %></h2>
+            <p class="desc"><%= book.description %></p>
+
+            <div class="details">
+                <h2>Book Detail</h2>
+                <div class="detail-items">
+                    <p><strong>Published Date:</strong> <%= book.release_date %></p>
+                    <p><strong>Genre:</strong> <%= book.genre %></p>
+                    <p><strong>Authors:</strong> <%= book.author%></a></p>
+                </div>
+            </div>
         </div>
     <% } %>
     </div>
-
+    <%- include('./layout/authorRelated.ejs') %>
 </div>

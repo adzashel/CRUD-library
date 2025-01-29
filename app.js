@@ -50,7 +50,8 @@ app.get("/", async (req, res) => {
       res.status(404).render('noBooks' ,{
         layout: "layout/container",
         title: "Page Not Found",
-        category
+        category,
+        message : "Page Not Found"
       });
     }
   } catch (err) {
@@ -168,6 +169,7 @@ app.get("/author/:id", async (req, res) => {
         filteredBooks,
         title: `Books by ${author}`,
         category,
+        message : `No books found for ${author}`
       });
     }, 1000);
   } catch (e) {
@@ -191,7 +193,8 @@ app.get("/search", async (req, res) => {
       res.render("noBooks", {
         layout: "layout/container",
         title: "Page Not Found",
-        category
+        category,
+        message : `No books found with specified name ${ search }`
       });
     } else {
       res.render("category", {
@@ -215,7 +218,12 @@ app.get("/detail/:id", async (req, res) => {
     const filteredBook = await User.find();
     const filterdByAuthor = filteredBook.filter(item => item.author === book.author);
     if (!book) {
-      return res.status(404).send("Book not found");
+      return res.status(404).render('noBooks' , {
+        layout: "layout/container",
+        title: "Page Not Found",
+        category,
+        message : "There is no Detail"
+      })
     }
     res.render("detail", {
       layout: "layout/container",
@@ -232,15 +240,23 @@ app.get("/detail/:id", async (req, res) => {
 app.get("/new-books-detail/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const newBooks = await NewRelease.findById(id);
-    if (!newBooks) {
-      return res.status(404).send("Book not found");
+    const book = await NewRelease.findById(id);
+    const filteredBooks = await User.find();
+    const filterdByAuthor = filteredBooks.filter(item => item.author === book.author);
+    if (!book) {
+      return res.status(404).render('noBooks' , {
+        layout : "layout/container",
+        title: "Page Not Found",
+        category,
+        message : "There is no Detail"
+      });
     }
     res.render("new-detail", {
       layout: "layout/container",
-      title: newBooks.name,
+      title: book.name,
       category,
-      newBooks,
+      book,
+      otherBooks : filterdByAuthor
     });
   } catch (e) {
     console.error(e);
