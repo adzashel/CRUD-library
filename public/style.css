@@ -326,7 +326,7 @@ img {
 
 
 .details h6 {
-  text-align: justify;
+  text-align: start;
   font-size: 12px;
   margin-top: 1em;
 }
@@ -354,6 +354,10 @@ img {
   justify-content: center;
   align-items: center;
 }
+
+.new-books-container {
+  margin-bottom: 1em;
+}
 /* laptop responsive */
 
 @media only screen and (min-width: 1280px) and (max-width: 1400px) {
@@ -376,5 +380,14 @@ img {
 
   .author-section {
     margin-right: 3rem;
+  }
+
+  .desc {
+    width: 650px;
+  }
+  
+  .carousel-container {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
   }
 }

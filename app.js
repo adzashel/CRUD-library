@@ -19,7 +19,7 @@ app.use(expressLayouts);
 app.use(express.static("public"));
 
 
-
+// function to filter books by category
 const filteredBooksByCategory = async (query, genre) => {
   try {
     const books = await User.find(query);
@@ -47,7 +47,11 @@ app.get("/", async (req, res) => {
         currentPage: books.page,
       });
     } else {
-      res.status(404).send("Page not found");
+      res.status(404).render('noBooks' ,{
+        layout: "layout/container",
+        title: "Page Not Found",
+        category
+      });
     }
   } catch (err) {
     console.error(err);
