@@ -8,6 +8,10 @@
   font-family: "Urbanist";
 }
 
+.banner {
+  border: none;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -358,11 +362,32 @@ img {
 .new-books-container {
   margin-bottom: 1em;
 }
+
+.detail-wrapper .desc {
+  width: 550px;
+}
 /* laptop responsive */
 
-@media only screen and (min-width: 1280px) and (max-width: 1400px) {
+@media only screen and (min-width: 1280px) and (max-width: 2000px) {
   .item-header {
-    width: 350px;
+    width: 450px;
+    height: 150px;
+  }
+
+  .item-header img {
+    width: 80 px;
+    height: 100px;
+  }
+  .item-detail  h2 {
+    font-size: 12px;
+  }
+
+  .item-detail p , .item-detail .desc {
+    font-size: 10px;
+  }
+
+  .item-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .item-detail h2,
@@ -382,12 +407,25 @@ img {
     margin-right: 3rem;
   }
 
-  .desc {
-    width: 650px;
+  .detail-wrapper .desc {
+    width: 450px !important;
   }
   
   .carousel-container {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cards-container {
+    width: 150px;
+    border: 0.5px solid #8b8888;
+    border-radius: 10px;
+    gap: 10px;
+    height: 300px;
+    cursor: pointer;
+  }
+
+  .wrapper img {
+    margin-right: 1rem;
   }
 }
