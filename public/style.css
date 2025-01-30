@@ -364,11 +364,11 @@ img {
 }
 
 .detail-wrapper .desc {
-  width: 550px;
+  width: 650px;
 }
 /* laptop responsive */
 
-@media only screen and (min-width: 1280px) and (max-width: 2000px) {
+@media only screen and (min-width: 1280px) and (max-width: 1900px ) {
   .item-header {
     width: 450px;
     height: 150px;
@@ -386,10 +386,11 @@ img {
     font-size: 10px;
   }
 
+
   .item-container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
-
   .item-detail h2,
   .item-detail p {
     font-size: 10px;
