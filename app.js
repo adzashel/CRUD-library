@@ -163,15 +163,23 @@ app.get("/author/:id", async (req, res) => {
   try {
     const books = await User.find(query);
     const filteredBooks = books.filter((book) => book.author === author);
+   if(filteredBooks.length === 0) {
+    res.render('noBooks' , {
+      layout: "layout/container",
+      title: `Books by ${author}`,
+      category,
+      message : `Books by ${ author } can't be found`
+    })
+   }else {
     setTimeout(() => {
       res.render("category", {
         layout: "layout/container",
         filteredBooks,
         title: `Books by ${author}`,
         category,
-        message : `No books found for ${author}`
       });
     }, 1000);
+   }
   } catch (e) {
     console.error(e);
     res.status(500).send("Server Error");
