@@ -34,7 +34,6 @@ const category = [
     link: "Ayano Morio",
         image : "https://i.pinimg.com/736x/0a/2f/68/0a2f68448ab64c7fb67e75ef410de163.jpg"
   }
-   
   ]
 
 // load more books

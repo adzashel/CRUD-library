@@ -218,6 +218,10 @@ img {
   gap: 1rem;
 }
 
+.item-detail h2 , .item-detail p {
+  width: 250px;
+}
+
 .item-header {
   border-radius: 10px;
   background-size: cover; /* Options: cover, contain, 100%, etc. */
@@ -377,7 +381,7 @@ img {
 }
 /* laptop responsive */
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1280px) and (max-width: 1900px){
   .item-header {
     width: 250px;
     height: 150px;
